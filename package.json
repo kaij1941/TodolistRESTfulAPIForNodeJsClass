@@ -1,0 +1,23 @@
+{
+  "name": "todolistrestfulapibynodejs",
+  "version": "1.0.0",
+  "description": "NodeJs課堂預習作業",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaij1941/TodolistRESTfulAPIForNodeJsClass.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaij1941/TodolistRESTfulAPIForNodeJsClass/issues"
+  },
+  "homepage": "https://github.com/kaij1941/TodolistRESTfulAPIForNodeJsClass#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+
+}
