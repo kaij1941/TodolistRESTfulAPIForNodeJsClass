@@ -4,7 +4,8 @@
   "description": "NodeJs課堂預習作業",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,7 @@
   "dependencies": {
     "uuid": "^8.3.2"
   }
-
+  ,"engines": {
+    "node": "16.x"
+  }
 }
