@@ -33,8 +33,8 @@ const requestlistener = (req,res)=>{
                         const title =JSON.parse(body).title;
                         if(title){
                             const todo ={
-                                "id":uuid4(),
-                                "title":title
+                                "title":title,
+                                "id":uuidv4()
                             }   
                             todos.push(todo);
                         }
@@ -49,7 +49,6 @@ const requestlistener = (req,res)=>{
                     }
                 })
                 return;
-                break;
             case "PATCH":
                 req.on('end',()=>{
                     try {
@@ -68,7 +67,6 @@ const requestlistener = (req,res)=>{
                     }
                     return;
                 })
-                break;
             case "DELETE":
                 if(urlRoute[2]){
                     res.on('end',()=>{
@@ -87,7 +85,6 @@ const requestlistener = (req,res)=>{
                 todos.length=0;
                 SetDataSuccessRespond(res, header, successResult);
                 return;
-                break;
         }
     }
 
