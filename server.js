@@ -100,7 +100,7 @@ const requestlistener = (req,res)=>{
 }
 
 const server =http.createServer(requestlistener);
-server.listen(3005);
+server.listen(process.env.PORT || 3005);
 
 function SetDataSuccessRespond(res, header, successResult) {
     res.writeHead(200, header);
