@@ -1,6 +1,6 @@
 const http=require('http');
 const { resolveSoa}=require('dns');
-const {error } =require('console');
+const {error, Console } =require('console');
 const { exit} =require('process');
 const {v4:uuidv4}=require('uuid');
 const errorHandle =require('./errorHandle');
@@ -38,10 +38,7 @@ const requestlistener = (req,res)=>{
                             }   
                             todos.push(todo);
                         }
-                        res.writeHead(200, header);
-                        successResult.data = todos;
-                        res.write(JSON.stringify(successResult));
-                        res.end();
+                        SetDataSuccessRespond(res, header, successResult);
                         return;
                     } catch (error) {
                         errorHandle(res,400,"欄位未填寫正確");
@@ -67,24 +64,28 @@ const requestlistener = (req,res)=>{
                     }
                     return;
                 })
-            case "DELETE":
+            case "DELETE":     
                 if(urlRoute[2]){
-                    res.on('end',()=>{
+                    console.log('-00');
+                    req.on('end',()=>{
+                        console.log('00')
                         const id =urlRoute[2];
                         const index =todos.findIndex(element=>element.id==id);
-                        if (index !=-1) {
-                            todos.splice(index,1);
-                            SetDataSuccessRespond(res, header, successResult);
-                            return;
+                        if (index==-1) {
+                            errorHandle(res,400,"id不存在");
+                            return;   
                         }
-                        errorHandle(res,400,"id不存在");
-                        return;
-                    })                  
+                        todos.splice(index,1);
+                        SetDataSuccessRespond(res, header, successResult);
+                        return;                            
+                    })             
                 }
-
-                todos.length=0;
-                SetDataSuccessRespond(res, header, successResult);
-                return;
+                else{
+                    todos.length=0;
+                    SetDataSuccessRespond(res, header, successResult);
+                    return;  
+                }
+             
         }
     }
 
@@ -94,13 +95,7 @@ const requestlistener = (req,res)=>{
         return;   
     }
 
-    errorHandle(res,404,"無此網路路由");
-    /**
-     * 錯誤處理
-     * @param {*} res 
-     * @param {*} httpCode 
-     * @param {*} message 
-     */
+
 
 }
 

@@ -1,3 +1,9 @@
+/**
+ * 錯誤處理
+ * @param {*} res 
+ * @param {*} httpCode 
+ * @param {*} message 
+ */
 function errorHandle(res,httpCode,message) {
     const header={
         'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
