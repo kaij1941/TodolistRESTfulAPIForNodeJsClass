@@ -39,10 +39,8 @@ const requestlistener = (req,res)=>{
                             todos.push(todo);
                         }
                         SetDataSuccessRespond(res, header, successResult);
-                        return;
                     } catch (error) {
                         errorHandle(res,400,"欄位未填寫正確");
-                        return;
                     }
                 })
                 return;
@@ -58,36 +56,29 @@ const requestlistener = (req,res)=>{
                         } 
                         todos[index].title=title;
                         SetDataSuccessRespond(res, header, successResult);
-                        return;
                     } catch (error) {
                         errorHandle(res,400,"欄位未填寫正確");
-                    }
-                    res.send();  
+                    } 
                 })
+                return;
             case "DELETE":
-                    if(urlRoute[2]){
-                        console.log('-00');
-                        req.on('end',()=>{
-                            console.log('00')
-                            const id =urlRoute[2];
-                            const index =todos.findIndex(element=>element.id==id);
-                            if (index==-1) {
-                                errorHandle(res,400,"id不存在");
-                                return;   
-                            }
-                            todos.splice(index,1);
-                            SetDataSuccessRespond(res, header, successResult);
-                            return ;                           
-                        }) 
-                        return;
+                if(! urlRoute[2]){
+                    todos.length=0;
+                    SetDataSuccessRespond(res, header, successResult);
+                    return ;  
+                }    
+                req.on('end',()=>{
+                    const id =urlRoute[2];
+                    const index =todos.findIndex(element=>element.id==id);
+                    if (index==-1) {
+                        errorHandle(res,400,"id不存在");
+                        return;   
                     }
-                    else{
-                        todos.length=0;
-                        SetDataSuccessRespond(res, header, successResult);
-                        return ;  
-                    }    
-    
-             
+                    todos.splice(index,1);
+                    SetDataSuccessRespond(res, header, successResult);
+                                                   
+                }) 
+                return;                
         }
     }
 
@@ -97,8 +88,6 @@ const requestlistener = (req,res)=>{
         return ;  
     }
     errorHandle(res,404,"無此網站路由");
-
-
 }
 
 const server =http.createServer(requestlistener);
