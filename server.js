@@ -94,7 +94,7 @@ const requestlistener = (req,res)=>{
         res.end();
         return;   
     }
-
+    errorHandle(res,404,"無此網站路由");
 
 
 }
