@@ -50,7 +50,7 @@ const requestlistener = (req,res)=>{
                         const title =JSON.parse(body).title;
                         const id =urlRoute[2];
                         const index = todos.findIndex(element=>element.id == id);
-                        if (!title && index == -1 ){
+                        if (!title || index == -1 ){
                             errorHandle(res,400,"欄位未填寫正確 或 id不存在")
                             return;
                         } 
@@ -75,8 +75,7 @@ const requestlistener = (req,res)=>{
                         return;   
                     }
                     todos.splice(index,1);
-                    SetDataSuccessRespond(res, header, successResult);
-                                                   
+                    SetDataSuccessRespond(res, header, successResult);                                                   
                 }) 
                 return;                
         }
