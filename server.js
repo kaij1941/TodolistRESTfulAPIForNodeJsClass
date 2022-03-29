@@ -62,29 +62,31 @@ const requestlistener = (req,res)=>{
                     } catch (error) {
                         errorHandle(res,400,"欄位未填寫正確");
                     }
-                    return;
+                    res.send();  
                 })
-            case "DELETE":     
-                if(urlRoute[2]){
-                    console.log('-00');
-                    req.on('end',()=>{
-                        console.log('00')
-                        const id =urlRoute[2];
-                        const index =todos.findIndex(element=>element.id==id);
-                        if (index==-1) {
-                            errorHandle(res,400,"id不存在");
-                            return;   
-                        }
-                        todos.splice(index,1);
+            case "DELETE":
+                    if(urlRoute[2]){
+                        console.log('-00');
+                        req.on('end',()=>{
+                            console.log('00')
+                            const id =urlRoute[2];
+                            const index =todos.findIndex(element=>element.id==id);
+                            if (index==-1) {
+                                errorHandle(res,400,"id不存在");
+                                return;   
+                            }
+                            todos.splice(index,1);
+                            SetDataSuccessRespond(res, header, successResult);
+                            return ;                           
+                        }) 
+                        return;
+                    }
+                    else{
+                        todos.length=0;
                         SetDataSuccessRespond(res, header, successResult);
-                        return;                            
-                    })             
-                }
-                else{
-                    todos.length=0;
-                    SetDataSuccessRespond(res, header, successResult);
-                    return;  
-                }
+                        return ;  
+                    }    
+    
              
         }
     }
@@ -92,7 +94,7 @@ const requestlistener = (req,res)=>{
     if (req.method =='Option'){
         res.writeHead(200,header);
         res.end();
-        return;   
+        return ;  
     }
     errorHandle(res,404,"無此網站路由");
 
