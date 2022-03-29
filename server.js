@@ -52,12 +52,12 @@ const requestlistener = (req,res)=>{
                         const title =JSON.parse(body).title;
                         const id =urlRoute[2];
                         const index = todos.findIndex(element=>element.id == id);
-                        if (title && index != -1 ){
-                            todos[index].title=title;
-                            SetDataSuccessRespond(res, header, successResult);
+                        if (!title && index == -1 ){
+                            errorHandle(res,400,"欄位未填寫正確 或 id不存在")
                             return;
                         } 
-                        errorHandle(res,400,"欄位未填寫正確 或 id不存在")
+                        todos[index].title=title;
+                        SetDataSuccessRespond(res, header, successResult);
                         return;
                     } catch (error) {
                         errorHandle(res,400,"欄位未填寫正確");
