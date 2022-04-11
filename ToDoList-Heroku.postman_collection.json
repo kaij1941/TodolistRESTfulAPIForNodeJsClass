@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "d26449b2-f8ca-4331-98b7-e1400b6d47e6",
 		"name": "ToDoList-Heroku",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -22,20 +22,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://127.0.0.1:3005/todos",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3005",
-					"path": [
-						"todos"
-					]
-				}
+				"url": "https://blooming-spire-24428.herokuapp.com/todos"
 			},
 			"response": []
 		},
@@ -53,20 +40,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://127.0.0.1:3005/todos",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3005",
-					"path": [
-						"todos"
-					]
-				}
+				"url": "https://blooming-spire-24428.herokuapp.com/todos"
 			},
 			"response": []
 		},
@@ -75,20 +49,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3005/todos",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3005",
-					"path": [
-						"todos"
-					]
-				}
+				"url": "https://blooming-spire-24428.herokuapp.com/todos"
 			},
 			"response": []
 		},
@@ -97,21 +58,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:3005/todos/0",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3005",
-					"path": [
-						"todos",
-						"0"
-					]
-				}
+				"url": "https://blooming-spire-24428.herokuapp.com/todos/0"
 			},
 			"response": []
 		},
@@ -129,21 +76,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://127.0.0.1:3005/todos/54fd38c1-f5ca-48b4-97cb-24f1619d74e5",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3005",
-					"path": [
-						"todos",
-						"54fd38c1-f5ca-48b4-97cb-24f1619d74e5"
-					]
-				}
+				"url": "https://blooming-spire-24428.herokuapp.com/todos/54fd38c1-f5ca-48b4-97cb-24f1619d74e5"
 			},
 			"response": []
 		}
